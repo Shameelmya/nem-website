@@ -85,88 +85,72 @@ const SectionHeading = ({ title, subtitle, align = "center", dark = false }) => 
 const SponsorshipTables = () => (
   <div className="space-y-12 relative z-10 max-w-5xl mx-auto">
     
-    {/* Project 1: Community School Program (CLC) */}
     <div className="bg-white rounded-3xl shadow-lg border border-slate-100 overflow-hidden hover:shadow-xl transition-shadow duration-300">
-      <div className="bg-gradient-to-r from-emerald-50 to-white p-8 border-b border-emerald-100 flex justify-between items-center">
+      {/* Header - Reddish Orange Gradient */}
+      <div className="bg-gradient-to-r from-orange-500 to-red-600 p-8 border-b border-orange-600 flex justify-between items-center">
         <div>
-            <h3 className="text-2xl font-bold text-emerald-900 font-heading">Community School Program</h3>
-            <p className="text-emerald-600/80 text-sm font-medium tracking-wide mt-1">Grassroots Education Sponsorship</p>
+            <h3 className="text-2xl font-bold text-white font-heading">Sponsorship Opportunities</h3>
+            <p className="text-orange-100 text-sm font-medium tracking-wide mt-1">Invest in a brighter future</p>
         </div>
-        <div className="p-3 bg-emerald-100/50 rounded-2xl text-emerald-600">
-            <Building className="w-8 h-8" />
+        <div className="flex gap-2">
+            <div className="p-3 bg-white/20 backdrop-blur-md rounded-2xl text-white">
+                <GraduationCap className="w-6 h-6" />
+            </div>
+            <div className="p-3 bg-white/20 backdrop-blur-md rounded-2xl text-white">
+                <Building className="w-6 h-6" />
+            </div>
         </div>
       </div>
       
-      <div className="p-6">
-        <table className="w-full text-left border-separate border-spacing-y-3">
+      <div className="p-6 bg-slate-50/50">
+        <table className="w-full text-left border-separate border-spacing-y-4">
           <thead>
             <tr>
-              <th className="pb-4 pl-4 font-bold text-slate-400 text-xs uppercase tracking-widest">Duration</th>
-              <th className="pb-4 font-bold text-slate-400 text-xs uppercase tracking-widest text-right">Sponsor Student</th>
-              <th className="pb-4 pr-4 font-bold text-slate-400 text-xs uppercase tracking-widest text-right">Sponsor Centre</th>
+              <th className="pb-4 pl-6 font-bold text-slate-500 text-sm tracking-wide w-[20%]">Duration</th>
+              <th className="pb-4 text-right w-[25%] px-2">
+                <span className="inline-block bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-sm">
+                  1 Student (HEP)
+                </span>
+              </th>
+              <th className="pb-4 text-right w-[25%] px-2">
+                <span className="inline-block bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-sm">
+                  1 Student (CLC)
+                </span>
+              </th>
+              <th className="pb-4 pr-6 text-right w-[30%]">
+                <span className="inline-block bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-sm">
+                  1 CLC Centre
+                </span>
+              </th>
             </tr>
           </thead>
           <tbody>
-            <tr className="group hover:bg-slate-50 transition-colors rounded-xl">
-              <td className="py-4 pl-4 bg-slate-50/50 group-hover:bg-slate-50 rounded-l-xl border-y border-l border-slate-100 group-hover:border-slate-200 text-slate-600 font-medium">1 Month</td>
-              <td className="py-4 bg-slate-50/50 group-hover:bg-slate-50 border-y border-slate-100 group-hover:border-slate-200 text-slate-800 font-bold text-right">₹ 600</td>
-              <td className="py-4 pr-4 bg-slate-50/50 group-hover:bg-slate-50 rounded-r-xl border-y border-r border-slate-100 group-hover:border-slate-200 text-slate-800 font-bold text-right">₹ 25,000</td>
+            {/* 1 Month Row */}
+            <tr className="group bg-white rounded-2xl shadow-sm border border-slate-100 hover:shadow-md hover:border-slate-200 transition-all duration-300">
+              <td className="py-5 pl-6 rounded-l-2xl text-slate-600 font-bold border-y border-l border-slate-100 group-hover:border-slate-200">1 Month</td>
+              <td className="py-5 px-4 border-y border-slate-100 group-hover:border-slate-200 text-orange-600 font-bold text-right text-lg">₹ 890</td>
+              <td className="py-5 px-4 border-y border-slate-100 group-hover:border-slate-200 text-orange-600 font-bold text-right text-lg">₹ 565</td>
+              <td className="py-5 pr-6 rounded-r-2xl border-y border-r border-slate-100 group-hover:border-slate-200 text-orange-600 font-bold text-right text-lg">₹ 22,600</td>
             </tr>
-            <tr className="group hover:bg-slate-50 transition-colors rounded-xl">
-              <td className="py-4 pl-4 bg-slate-50/50 group-hover:bg-slate-50 rounded-l-xl border-y border-l border-slate-100 group-hover:border-slate-200 text-slate-600 font-medium">6 Months</td>
-              <td className="py-4 bg-slate-50/50 group-hover:bg-slate-50 border-y border-slate-100 group-hover:border-slate-200 text-slate-800 font-bold text-right">₹ 3,600</td>
-              <td className="py-4 pr-4 bg-slate-50/50 group-hover:bg-slate-50 rounded-r-xl border-y border-r border-slate-100 group-hover:border-slate-200 text-slate-800 font-bold text-right">₹ 1,50,000</td>
-            </tr>
-            <tr className="group relative shadow-md shadow-emerald-100/50 transform scale-[1.02] origin-center z-10">
-              <td className="py-5 pl-6 bg-emerald-600 rounded-l-xl text-white font-bold">
-                1 Year
-              </td>
-              <td className="py-5 bg-emerald-600 text-white font-extrabold text-xl text-right">₹ 7,200</td>
-              <td className="py-5 pr-6 bg-emerald-600 rounded-r-xl text-white font-extrabold text-xl text-right">₹ 3,00,000</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
 
-    {/* Project 2: Higher Education Program (HEP) */}
-    <div className="bg-white rounded-3xl shadow-lg border border-slate-100 overflow-hidden hover:shadow-xl transition-shadow duration-300">
-        <div className="bg-gradient-to-r from-blue-50 to-white p-8 border-b border-blue-100 flex justify-between items-center">
-        <div>
-            <h3 className="text-2xl font-bold text-blue-900 font-heading">Higher Education Program</h3>
-            <p className="text-blue-600/80 text-sm font-medium tracking-wide mt-1">Professional Career Sponsorship</p>
-        </div>
-        <div className="p-3 bg-blue-100/50 rounded-2xl text-blue-600">
-            <GraduationCap className="w-8 h-8" />
-        </div>
-      </div>
-      
-      <div className="p-6">
-        <table className="w-full text-left border-separate border-spacing-y-3">
-          <thead>
-            <tr>
-              <th className="pb-4 pl-4 font-bold text-slate-400 text-xs uppercase tracking-widest">Duration</th>
-              <th className="pb-4 font-bold text-slate-400 text-xs uppercase tracking-widest text-right">Sponsor Student</th>
-              <th className="pb-4 pr-4 font-bold text-slate-400 text-xs uppercase tracking-widest text-right">Sponsor Centre</th>
+            {/* 6 Months Row */}
+            <tr className="group bg-white rounded-2xl shadow-sm border border-slate-100 hover:shadow-md hover:border-slate-200 transition-all duration-300">
+              <td className="py-5 pl-6 rounded-l-2xl text-slate-600 font-bold border-y border-l border-slate-100 group-hover:border-slate-200">6 Months</td>
+              <td className="py-5 px-4 border-y border-slate-100 group-hover:border-slate-200 text-orange-600 font-bold text-right text-lg">₹ 5,340</td>
+              <td className="py-5 px-4 border-y border-slate-100 group-hover:border-slate-200 text-orange-600 font-bold text-right text-lg">₹ 3,390</td>
+              <td className="py-5 pr-6 rounded-r-2xl border-y border-r border-slate-100 group-hover:border-slate-200 text-orange-600 font-bold text-right text-lg">₹ 1,35,500</td>
             </tr>
-          </thead>
-          <tbody>
-            <tr className="group hover:bg-slate-50 transition-colors rounded-xl">
-              <td className="py-4 pl-4 bg-slate-50/50 group-hover:bg-slate-50 rounded-l-xl border-y border-l border-slate-100 group-hover:border-slate-200 text-slate-600 font-medium">1 Month</td>
-              <td className="py-4 bg-slate-50/50 group-hover:bg-slate-50 border-y border-slate-100 group-hover:border-slate-200 text-slate-800 font-bold text-right">₹ 1,000</td>
-              <td className="py-4 pr-4 bg-slate-50/50 group-hover:bg-slate-50 rounded-r-xl border-y border-r border-slate-100 group-hover:border-slate-200 text-slate-800 font-bold text-right">₹ 45,000</td>
-            </tr>
-            <tr className="group hover:bg-slate-50 transition-colors rounded-xl">
-              <td className="py-4 pl-4 bg-slate-50/50 group-hover:bg-slate-50 rounded-l-xl border-y border-l border-slate-100 group-hover:border-slate-200 text-slate-600 font-medium">6 Months</td>
-              <td className="py-4 bg-slate-50/50 group-hover:bg-slate-50 border-y border-slate-100 group-hover:border-slate-200 text-slate-800 font-bold text-right">₹ 6,000</td>
-              <td className="py-4 pr-4 bg-slate-50/50 group-hover:bg-slate-50 rounded-r-xl border-y border-r border-slate-100 group-hover:border-slate-200 text-slate-800 font-bold text-right">₹ 2,70,000</td>
-            </tr>
-            <tr className="group relative shadow-md shadow-blue-100/50 transform scale-[1.02] origin-center z-10">
-              <td className="py-5 pl-6 bg-blue-600 rounded-l-xl text-white font-bold">
-                1 Year
+
+            {/* 1 Year Row - Highlighted */}
+            <tr className="group relative bg-gradient-to-r from-slate-900 to-slate-800 rounded-2xl shadow-lg shadow-slate-200 transform hover:-translate-y-1 transition-all duration-300 z-10">
+              <td className="py-6 pl-6 rounded-l-2xl text-white font-bold border-y border-l border-transparent relative overflow-hidden">
+                <span className="relative z-10 flex items-center gap-2">
+                  1 Year
+                </span>
               </td>
-              <td className="py-5 bg-blue-600 text-white font-extrabold text-xl text-right">₹ 12,000</td>
-              <td className="py-5 pr-6 bg-blue-600 rounded-r-xl text-white font-extrabold text-xl text-right">₹ 5,40,000</td>
+              <td className="py-6 px-4 border-y border-transparent bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent font-extrabold text-right text-2xl">₹ 10,680</td>
+              <td className="py-6 px-4 border-y border-transparent bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent font-extrabold text-right text-2xl">₹ 6,780</td>
+              <td className="py-6 pr-6 rounded-r-2xl border-y border-r border-transparent bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent font-extrabold text-right text-2xl">₹ 2,71,000</td>
             </tr>
           </tbody>
         </table>
