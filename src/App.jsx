@@ -470,7 +470,7 @@ export default function App() {
                    </div>
                    <div className="flex justify-between pt-2">
                      <span className="opacity-70">IFSC Code</span>
-                     <span className="font-bold text-right">FORL 000 1128</span>
+                     <span className="font-bold text-right">FDRL0001128</span>
                    </div>
                  </div>
               </div>
