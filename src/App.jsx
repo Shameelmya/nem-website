@@ -106,19 +106,19 @@ const SponsorshipTables = () => (
         <table className="w-full text-left border-separate border-spacing-y-4">
           <thead>
             <tr>
-              <th className="pb-4 pl-6 font-bold text-slate-500 text-sm tracking-wide w-[20%]">Duration</th>
+              <th className="pb-4 pl-6 font-bold text-slate-500 text-lg tracking-wide w-[20%]">Duration</th>
               <th className="pb-4 text-right w-[25%] px-2">
-                <span className="inline-block bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-sm">
+                <span className="inline-block bg-gradient-to-r from-orange-500 to-red-500 text-white text-sm font-bold px-4 py-2 rounded-lg shadow-sm">
                   1 Student (HEP)
                 </span>
               </th>
               <th className="pb-4 text-right w-[25%] px-2">
-                <span className="inline-block bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-sm">
+                <span className="inline-block bg-gradient-to-r from-orange-500 to-red-500 text-white text-sm font-bold px-4 py-2 rounded-lg shadow-sm">
                   1 Student (CLC)
                 </span>
               </th>
               <th className="pb-4 pr-6 text-right w-[30%]">
-                <span className="inline-block bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-sm">
+                <span className="inline-block bg-gradient-to-r from-orange-500 to-red-500 text-white text-sm font-bold px-4 py-2 rounded-lg shadow-sm">
                   1 CLC Centre
                 </span>
               </th>
