@@ -58,12 +58,13 @@ const BackgroundPattern = () => (
 
 const StatCounter = ({ label, value, subLabel, icon: Icon, colorClass, dark = false }) => (
   <div className={`flex flex-col items-center p-6 ${dark ? 'bg-slate-800 border-slate-700' : 'bg-white border-slate-100'} rounded-2xl shadow-sm hover:shadow-xl transition-shadow duration-300 border h-full justify-center text-center group relative z-10`}>
-    <div className={`p-4 rounded-full ${colorClass} bg-opacity-10 mb-4 group-hover:scale-110 transition-transform`}>
+    
+    <div className={`p-4 rounded-full ${colorClass} bg-opacity-10 mb-4 group-hover:scale-110 transition-transform relative z-10`}>
       <Icon className={`w-8 h-8 ${colorClass.replace('bg-', 'text-')}`} />
     </div>
-    <h3 className={`text-4xl font-bold ${dark ? 'text-white' : 'text-slate-800'} mb-1 font-heading`}>{value}</h3>
-    <p className={`text-sm font-bold uppercase tracking-wider ${dark ? 'text-slate-400' : 'text-slate-500'}`}>{label}</p>
-    {subLabel && <p className={`text-xs ${dark ? 'text-slate-500' : 'text-slate-400'} mt-2`}>{subLabel}</p>}
+    <h3 className={`text-4xl font-bold ${dark ? 'text-white' : 'text-slate-800'} mb-1 font-heading relative z-10`}>{value}</h3>
+    <p className={`text-sm font-bold uppercase tracking-wider ${dark ? 'text-slate-400' : 'text-slate-500'} relative z-10`}>{label}</p>
+    {subLabel && <p className={`text-xs ${dark ? 'text-slate-500' : 'text-slate-400'} mt-2 relative z-10`}>{subLabel}</p>}
   </div>
 );
 
@@ -299,7 +300,7 @@ export default function App() {
       </section>
 
       {/* --- CURRENT IMPACT (Running Stats) --- */}
-      <section className="py-12 bg-white relative z-20 border-b border-slate-100 shadow-sm overflow-hidden">
+      <section className="py-12 bg-white relative z-20 border-b border-slate-100 overflow-hidden">
         <BackgroundPattern />
         <div className="max-w-6xl mx-auto px-6 relative z-10">
           <div className="text-center mb-10">
