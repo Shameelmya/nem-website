@@ -82,33 +82,97 @@ const SectionHeading = ({ title, subtitle, align = "center", dark = false }) => 
   </div>
 );
 
-const FinancialCard = ({ title, items, total, perStudent, theme = "emerald" }) => (
-  <div className={`bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-100 flex flex-col h-full group relative z-10`}>
-    <div className={`p-6 text-white ${theme === 'blue' ? 'bg-blue-900' : 'bg-emerald-900'}`}>
-      <h3 className="text-xl font-bold font-heading">{title}</h3>
-      <div className="mt-2 flex items-baseline gap-2">
-         <span className={`text-3xl font-bold ${theme === 'blue' ? 'text-blue-300' : 'text-emerald-300'}`}>₹{total}</span>
-         <span className="text-sm opacity-70">/ Year Required</span>
-      </div>
-    </div>
-    <div className="p-6 flex-1 flex flex-col bg-white/80 backdrop-blur-sm">
-      <ul className="space-y-4 mb-8 flex-1">
-        {items.map((item, idx) => (
-          <li key={idx} className="flex justify-between items-start border-b border-slate-50 pb-2 last:border-0">
-            <span className="text-slate-600 text-sm font-medium">{item.label}</span>
-            <span className="text-slate-900 text-sm font-bold text-right">{item.value}</span>
-          </li>
-        ))}
-      </ul>
-      
-      <div className={`${theme === 'blue' ? 'bg-blue-50 border-blue-100' : 'bg-emerald-50 border-emerald-100'} rounded-xl p-4 border`}>
-        <p className={`text-center ${theme === 'blue' ? 'text-blue-800' : 'text-emerald-800'} font-bold text-sm uppercase tracking-wider mb-2`}>Impact Sponsorship</p>
-        <div className="flex justify-between items-center px-4">
-          <span className="text-slate-600 font-medium">Sponsor 1 Student</span>
-          <span className={`text-2xl font-bold ${theme === 'blue' ? 'text-blue-600' : 'text-emerald-600'}`}>{perStudent}<span className="text-xs font-normal text-slate-500">/yr</span></span>
+const SponsorshipTables = () => (
+  <div className="space-y-12 relative z-10 max-w-5xl mx-auto">
+    
+    {/* Project 1: Community School Program (CLC) */}
+    <div className="bg-white rounded-3xl shadow-lg border border-slate-100 overflow-hidden hover:shadow-xl transition-shadow duration-300">
+      <div className="bg-gradient-to-r from-emerald-50 to-white p-8 border-b border-emerald-100 flex justify-between items-center">
+        <div>
+            <h3 className="text-2xl font-bold text-emerald-900 font-heading">Community School Program</h3>
+            <p className="text-emerald-600/80 text-sm font-medium tracking-wide mt-1">Grassroots Education Sponsorship</p>
+        </div>
+        <div className="p-3 bg-emerald-100/50 rounded-2xl text-emerald-600">
+            <Building className="w-8 h-8" />
         </div>
       </div>
+      
+      <div className="p-6">
+        <table className="w-full text-left border-separate border-spacing-y-3">
+          <thead>
+            <tr>
+              <th className="pb-4 pl-4 font-bold text-slate-400 text-xs uppercase tracking-widest">Duration</th>
+              <th className="pb-4 font-bold text-slate-400 text-xs uppercase tracking-widest text-right">Sponsor Student</th>
+              <th className="pb-4 pr-4 font-bold text-slate-400 text-xs uppercase tracking-widest text-right">Sponsor Centre</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="group hover:bg-slate-50 transition-colors rounded-xl">
+              <td className="py-4 pl-4 bg-slate-50/50 group-hover:bg-slate-50 rounded-l-xl border-y border-l border-slate-100 group-hover:border-slate-200 text-slate-600 font-medium">1 Month</td>
+              <td className="py-4 bg-slate-50/50 group-hover:bg-slate-50 border-y border-slate-100 group-hover:border-slate-200 text-slate-800 font-bold text-right">₹ 600</td>
+              <td className="py-4 pr-4 bg-slate-50/50 group-hover:bg-slate-50 rounded-r-xl border-y border-r border-slate-100 group-hover:border-slate-200 text-slate-800 font-bold text-right">₹ 25,000</td>
+            </tr>
+            <tr className="group hover:bg-slate-50 transition-colors rounded-xl">
+              <td className="py-4 pl-4 bg-slate-50/50 group-hover:bg-slate-50 rounded-l-xl border-y border-l border-slate-100 group-hover:border-slate-200 text-slate-600 font-medium">6 Months</td>
+              <td className="py-4 bg-slate-50/50 group-hover:bg-slate-50 border-y border-slate-100 group-hover:border-slate-200 text-slate-800 font-bold text-right">₹ 3,600</td>
+              <td className="py-4 pr-4 bg-slate-50/50 group-hover:bg-slate-50 rounded-r-xl border-y border-r border-slate-100 group-hover:border-slate-200 text-slate-800 font-bold text-right">₹ 1,50,000</td>
+            </tr>
+            <tr className="group relative shadow-md shadow-emerald-100/50 transform scale-[1.02] origin-center z-10">
+              <td className="py-5 pl-6 bg-emerald-600 rounded-l-xl text-white font-bold">
+                1 Year
+              </td>
+              <td className="py-5 bg-emerald-600 text-white font-extrabold text-xl text-right">₹ 7,200</td>
+              <td className="py-5 pr-6 bg-emerald-600 rounded-r-xl text-white font-extrabold text-xl text-right">₹ 3,00,000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
+
+    {/* Project 2: Higher Education Program (HEP) */}
+    <div className="bg-white rounded-3xl shadow-lg border border-slate-100 overflow-hidden hover:shadow-xl transition-shadow duration-300">
+        <div className="bg-gradient-to-r from-blue-50 to-white p-8 border-b border-blue-100 flex justify-between items-center">
+        <div>
+            <h3 className="text-2xl font-bold text-blue-900 font-heading">Higher Education Program</h3>
+            <p className="text-blue-600/80 text-sm font-medium tracking-wide mt-1">Professional Career Sponsorship</p>
+        </div>
+        <div className="p-3 bg-blue-100/50 rounded-2xl text-blue-600">
+            <GraduationCap className="w-8 h-8" />
+        </div>
+      </div>
+      
+      <div className="p-6">
+        <table className="w-full text-left border-separate border-spacing-y-3">
+          <thead>
+            <tr>
+              <th className="pb-4 pl-4 font-bold text-slate-400 text-xs uppercase tracking-widest">Duration</th>
+              <th className="pb-4 font-bold text-slate-400 text-xs uppercase tracking-widest text-right">Sponsor Student</th>
+              <th className="pb-4 pr-4 font-bold text-slate-400 text-xs uppercase tracking-widest text-right">Sponsor Centre</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="group hover:bg-slate-50 transition-colors rounded-xl">
+              <td className="py-4 pl-4 bg-slate-50/50 group-hover:bg-slate-50 rounded-l-xl border-y border-l border-slate-100 group-hover:border-slate-200 text-slate-600 font-medium">1 Month</td>
+              <td className="py-4 bg-slate-50/50 group-hover:bg-slate-50 border-y border-slate-100 group-hover:border-slate-200 text-slate-800 font-bold text-right">₹ 1,000</td>
+              <td className="py-4 pr-4 bg-slate-50/50 group-hover:bg-slate-50 rounded-r-xl border-y border-r border-slate-100 group-hover:border-slate-200 text-slate-800 font-bold text-right">₹ 45,000</td>
+            </tr>
+            <tr className="group hover:bg-slate-50 transition-colors rounded-xl">
+              <td className="py-4 pl-4 bg-slate-50/50 group-hover:bg-slate-50 rounded-l-xl border-y border-l border-slate-100 group-hover:border-slate-200 text-slate-600 font-medium">6 Months</td>
+              <td className="py-4 bg-slate-50/50 group-hover:bg-slate-50 border-y border-slate-100 group-hover:border-slate-200 text-slate-800 font-bold text-right">₹ 6,000</td>
+              <td className="py-4 pr-4 bg-slate-50/50 group-hover:bg-slate-50 rounded-r-xl border-y border-r border-slate-100 group-hover:border-slate-200 text-slate-800 font-bold text-right">₹ 2,70,000</td>
+            </tr>
+            <tr className="group relative shadow-md shadow-blue-100/50 transform scale-[1.02] origin-center z-10">
+              <td className="py-5 pl-6 bg-blue-600 rounded-l-xl text-white font-bold">
+                1 Year
+              </td>
+              <td className="py-5 bg-blue-600 text-white font-extrabold text-xl text-right">₹ 12,000</td>
+              <td className="py-5 pr-6 bg-blue-600 rounded-r-xl text-white font-extrabold text-xl text-right">₹ 5,40,000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
   </div>
 );
 
@@ -464,52 +528,13 @@ export default function App() {
         <div className="max-w-6xl mx-auto px-6 relative z-10">
           <SectionHeading 
             title={<span>Investment in <span className="text-emerald-500">Future</span></span>}
-            subtitle="Transparent financial breakdown of our annual operational costs." 
+            subtitle="Your support can change a life forever. Choose a sponsorship tier and become a partner in progress." 
             align="center"
           />
 
-          <FadeIn className="mb-12 text-center">
-             <div className="inline-block bg-white border border-amber-200 rounded-full px-8 py-4 shadow-md transform hover:scale-105 transition-transform">
-                <span className="text-slate-500 font-medium uppercase tracking-widest text-sm">Total Annual Requirement</span>
-                <div className="text-amber-500 font-bold text-3xl mt-1">₹1,56,86,000</div>
-             </div>
+          <FadeIn>
+            <SponsorshipTables />
           </FadeIn>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            <FadeIn delay={100} className="h-full">
-              {/* HEP Breakdown */}
-              <FinancialCard 
-                title="Higher Education Program"
-                total="21,36,000"
-                perStudent="₹10,680"
-                theme="emerald"
-                items={[
-                  { label: "Project Head (Salary & Allowance)", value: "₹3,82,000" },
-                  { label: "5 Project Coordinators", value: "₹14,40,000" },
-                  { label: "Room Rent (Annual)", value: "₹1,80,000" },
-                  { label: "Daily Expenses Fund", value: "₹84,000" },
-                  { label: "Student Development", value: "₹50,000" },
-                ]}
-              />
-            </FadeIn>
-
-            <FadeIn delay={300} className="h-full">
-              {/* CLC Breakdown */}
-              <FinancialCard 
-                title="Community Learning (CLC)"
-                total="1,35,50,000"
-                perStudent="₹6,780"
-                theme="blue"
-                items={[
-                  { label: "25 Faculty Staff", value: "₹73,50,000" },
-                  { label: "5 Coordinators", value: "₹18,00,000" },
-                  { label: "Books & Equipment", value: "₹15,00,000" },
-                  { label: "Infrastructure Support", value: "₹15,00,000" },
-                  { label: "Mobility (Bikes)", value: "₹9,00,000" },
-                ]}
-              />
-            </FadeIn>
-          </div>
         </div>
       </section>
 
