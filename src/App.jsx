@@ -13,7 +13,9 @@ import {
   Briefcase,
   TrendingUp,
   Lightbulb,
-  Rocket
+  Rocket,
+  Volume2,
+  VolumeX
 } from 'lucide-react';
 
 // --- Components ---
@@ -46,8 +48,16 @@ const FadeIn = ({ children, delay = 0, className = "" }) => {
   );
 };
 
+// New Component for Animated Background Texture
+// Changed opacity to 0.3 for better visibility
+const BackgroundPattern = () => (
+  <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+    <div className="absolute inset-0 bg-curve-pattern opacity-[0.3]"></div>
+  </div>
+);
+
 const StatCounter = ({ label, value, subLabel, icon: Icon, colorClass, dark = false }) => (
-  <div className={`flex flex-col items-center p-6 ${dark ? 'bg-slate-800 border-slate-700' : 'bg-white border-slate-100'} rounded-2xl shadow-sm hover:shadow-xl transition-shadow duration-300 border h-full justify-center text-center group`}>
+  <div className={`flex flex-col items-center p-6 ${dark ? 'bg-slate-800 border-slate-700' : 'bg-white border-slate-100'} rounded-2xl shadow-sm hover:shadow-xl transition-shadow duration-300 border h-full justify-center text-center group relative z-10`}>
     <div className={`p-4 rounded-full ${colorClass} bg-opacity-10 mb-4 group-hover:scale-110 transition-transform`}>
       <Icon className={`w-8 h-8 ${colorClass.replace('bg-', 'text-')}`} />
     </div>
@@ -58,7 +68,7 @@ const StatCounter = ({ label, value, subLabel, icon: Icon, colorClass, dark = fa
 );
 
 const SectionHeading = ({ title, subtitle, align = "center", dark = false }) => (
-  <div className={`mb-16 ${align === "center" ? "text-center" : "text-left"}`}>
+  <div className={`mb-16 ${align === "center" ? "text-center" : "text-left"} relative z-10`}>
     <h2 className={`text-3xl md:text-5xl font-bold mb-4 font-heading ${dark ? "text-white" : "text-slate-800"}`}>
       {title}
     </h2>
@@ -72,7 +82,7 @@ const SectionHeading = ({ title, subtitle, align = "center", dark = false }) => 
 );
 
 const FinancialCard = ({ title, items, total, perStudent, theme = "emerald" }) => (
-  <div className={`bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-100 flex flex-col h-full group`}>
+  <div className={`bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-100 flex flex-col h-full group relative z-10`}>
     <div className={`p-6 text-white ${theme === 'blue' ? 'bg-blue-900' : 'bg-emerald-900'}`}>
       <h3 className="text-xl font-bold font-heading">{title}</h3>
       <div className="mt-2 flex items-baseline gap-2">
@@ -80,7 +90,7 @@ const FinancialCard = ({ title, items, total, perStudent, theme = "emerald" }) =
          <span className="text-sm opacity-70">/ Year Required</span>
       </div>
     </div>
-    <div className="p-6 flex-1 flex flex-col">
+    <div className="p-6 flex-1 flex flex-col bg-white/80 backdrop-blur-sm">
       <ul className="space-y-4 mb-8 flex-1">
         {items.map((item, idx) => (
           <li key={idx} className="flex justify-between items-start border-b border-slate-50 pb-2 last:border-0">
@@ -102,7 +112,7 @@ const FinancialCard = ({ title, items, total, perStudent, theme = "emerald" }) =
 );
 
 const ComparativeProjectCard = ({ title, description, currentStats, visionStats, image, theme, features }) => (
-  <div className="bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 mb-12">
+  <div className="bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 mb-12 relative z-10">
     <div className="grid lg:grid-cols-12 gap-0">
       {/* Image Section */}
       <div className="lg:col-span-5 relative min-h-[300px] lg:h-auto">
@@ -115,7 +125,7 @@ const ComparativeProjectCard = ({ title, description, currentStats, visionStats,
       </div>
 
       {/* Content Section */}
-      <div className="lg:col-span-7 p-8 lg:p-12 flex flex-col justify-center">
+      <div className="lg:col-span-7 p-8 lg:p-12 flex flex-col justify-center bg-white/80 backdrop-blur-sm">
         <p className="text-slate-600 text-lg mb-8 leading-relaxed">
           {description}
         </p>
@@ -178,6 +188,57 @@ const ComparativeProjectCard = ({ title, description, currentStats, visionStats,
 
 export default function App() {
   
+  // Audio State & Ref
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef(null);
+
+  // Attempt autoplay on mount
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.volume = 0.5; // Set initial volume to 50%
+      const playPromise = audioRef.current.play();
+      
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            // Autoplay started!
+            setIsPlaying(true);
+          })
+          .catch((error) => {
+            // Autoplay was prevented. User interaction required.
+            console.log("Audio autoplay blocked by browser policy:", error);
+            setIsPlaying(false);
+          });
+      }
+    }
+  }, []);
+
+  // Keyboard Event Listener for "M" key to toggle audio
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      // Check if the pressed key is 'm' or 'M'
+      if (event.key.toLowerCase() === 'm') {
+        if (audioRef.current) {
+          if (audioRef.current.paused) {
+            audioRef.current.play();
+            setIsPlaying(true);
+          } else {
+            audioRef.current.pause();
+            setIsPlaying(false);
+          }
+        }
+      }
+    };
+
+    // Attach listener
+    window.addEventListener('keydown', handleKeyDown);
+
+    // Cleanup listener on unmount
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
+
   // Smooth scroll handler
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
@@ -189,8 +250,14 @@ export default function App() {
   return (
     <div className="font-sans text-slate-800 bg-slate-50 selection:bg-emerald-200 selection:text-emerald-900">
       
+      {/* --- AUDIO COMPONENT --- */}
+      <audio ref={audioRef} src="/audio.mp3" loop />
+      
+      {/* Removed Audio Button - Use 'M' key to toggle */}
+
       {/* --- HERO SECTION --- */}
       <section className="relative min-h-[90vh] flex flex-col items-center justify-center pt-12 pb-12 px-4 overflow-hidden bg-white">
+        
         {/* Abstract Background Elements */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
            <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-emerald-50 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
@@ -232,8 +299,9 @@ export default function App() {
       </section>
 
       {/* --- CURRENT IMPACT (Running Stats) --- */}
-      <section className="py-12 bg-white relative z-20 border-b border-slate-100 shadow-sm">
-        <div className="max-w-6xl mx-auto px-6">
+      <section className="py-12 bg-white relative z-20 border-b border-slate-100 shadow-sm overflow-hidden">
+        <BackgroundPattern />
+        <div className="max-w-6xl mx-auto px-6 relative z-10">
           <div className="text-center mb-10">
             <h3 className="text-lg font-bold uppercase tracking-widest text-slate-400">Current Status</h3>
           </div>
@@ -246,8 +314,9 @@ export default function App() {
       </section>
 
       {/* --- ABOUT SECTION --- */}
-      <section className="py-24 bg-slate-50">
-        <div className="max-w-4xl mx-auto px-6 text-center">
+      <section className="py-24 bg-slate-50 relative overflow-hidden">
+        {/* Removed BackgroundPattern from here */}
+        <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
           <FadeIn>
             <Heart className="w-12 h-12 text-emerald-500 mx-auto mb-6" />
             <h3 className="text-2xl font-bold text-slate-900 mb-8 leading-relaxed font-heading">
@@ -267,6 +336,7 @@ export default function App() {
 
       {/* --- VISION 2035 & PROJECTS (Comparative View) --- */}
       <section id="vision2035" className="py-24 bg-white relative overflow-hidden">
+        <BackgroundPattern />
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <SectionHeading 
             title={<span>Vision <span className="text-emerald-500">2035</span></span>}
@@ -388,8 +458,9 @@ export default function App() {
       </section>
 
       {/* --- FINANCIAL NEED --- */}
-      <section className="py-24 bg-slate-50 border-t border-slate-200">
-        <div className="max-w-6xl mx-auto px-6">
+      <section className="py-24 bg-slate-50 border-t border-slate-200 relative overflow-hidden">
+        <BackgroundPattern />
+        <div className="max-w-6xl mx-auto px-6 relative z-10">
           <SectionHeading 
             title={<span>Investment in <span className="text-emerald-500">Future</span></span>}
             subtitle="Transparent financial breakdown of our annual operational costs." 
@@ -456,7 +527,7 @@ export default function App() {
                 Join the Micro Fund Collection Campaign. Your support directly fuels the education of a child who dreams of a better tomorrow.
               </p>
               
-              <div className="bg-emerald-700 bg-opacity-50 p-6 rounded-2xl border border-emerald-500 backdrop-blur-sm">
+               <div className="bg-emerald-700 bg-opacity-50 p-6 rounded-2xl border border-emerald-500 backdrop-blur-sm">
                  <h4 className="text-sm uppercase tracking-widest text-emerald-200 mb-4">Bank Transfer Details</h4>
                  {/* Normal Professional Font (Sans-serif) */}
                  <div className="space-y-3 text-lg font-sans">
@@ -543,6 +614,20 @@ export default function App() {
         }
         .animation-delay-4000 {
           animation-delay: 4s;
+        }
+
+        /* --- ANIMATED CURVED LINES TEXTURE --- */
+        .bg-curve-pattern {
+          /* Using an SVG data URI for a repeating curved line (wave) pattern */
+          /* Pattern is 20px wide, 6px high - "very close" lines */
+          background-image: url("data:image/svg+xml,%3Csvg width='20' height='6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 3 Q 5 6 10 3 T 20 3' stroke='%2394a3b8' fill='none' stroke-width='0.5'/%3E%3C/svg%3E");
+          background-size: 20px 6px;
+          animation: pattern-move 180s linear infinite;
+        }
+
+        @keyframes pattern-move {
+          0% { background-position: 0 0; }
+          100% { background-position: 100% 100%; }
         }
       `}</style>
     </div>
