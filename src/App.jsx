@@ -86,18 +86,17 @@ const SponsorshipTables = () => (
   <div className="space-y-12 relative z-10 max-w-5xl mx-auto">
     
     <div className="bg-white rounded-3xl shadow-lg border border-slate-100 overflow-hidden hover:shadow-xl transition-shadow duration-300">
-      {/* Header - White with Texture */}
-      <div className="bg-white p-8 border-b border-slate-100 flex justify-between items-center relative overflow-hidden">
-        <BackgroundPattern />
-        <div className="relative z-10">
-            <h3 className="text-2xl font-bold text-slate-900 font-heading">Sponsorship Opportunities</h3>
-            <p className="text-slate-500 text-sm font-medium tracking-wide mt-1">Invest in a brighter future</p>
+      {/* Header - Reddish Orange Gradient */}
+      <div className="bg-gradient-to-r from-orange-500 to-red-600 p-8 border-b border-orange-600 flex justify-between items-center">
+        <div>
+            <h3 className="text-2xl font-bold text-white font-heading">Sponsorship Opportunities</h3>
+            <p className="text-orange-100 text-sm font-medium tracking-wide mt-1">Invest in a brighter future</p>
         </div>
-        <div className="flex gap-2 relative z-10">
-            <div className="p-3 bg-blue-50 rounded-2xl text-blue-600">
+        <div className="flex gap-2">
+            <div className="p-3 bg-white/20 backdrop-blur-md rounded-2xl text-white">
                 <GraduationCap className="w-6 h-6" />
             </div>
-            <div className="p-3 bg-emerald-50 rounded-2xl text-emerald-600">
+            <div className="p-3 bg-white/20 backdrop-blur-md rounded-2xl text-white">
                 <Building className="w-6 h-6" />
             </div>
         </div>
