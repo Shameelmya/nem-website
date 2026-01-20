@@ -305,7 +305,7 @@ export default function App() {
       {/* Removed Audio Button - Use 'M' key to toggle */}
 
       {/* --- HERO SECTION --- */}
-      <section className="relative min-h-[90vh] flex flex-col items-center justify-center pt-12 pb-12 px-4 overflow-hidden bg-white">
+      <section className="relative min-h-[90vh] flex flex-col items-center justify-start pt-12 pb-12 px-4 overflow-hidden bg-white">
         
         {/* Abstract Background Elements */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
@@ -327,13 +327,12 @@ export default function App() {
 
           <FadeIn delay={200}>
             {/* Title with minimal top margin - Pulled up significantly */}
-            <h2 className="text-emerald-600 font-bold text-lg md:text-xl mb-4 -mt-8 md:-mt-10 relative z-20">National Empowerment Mission</h2>
+            <h2 className="text-emerald-600 font-bold text-lg md:text-xl mb-1 -mt-8 md:-mt-16 relative z-20">National Empowerment Mission</h2>
             
-            {/* Colored Acts & Impact */}
-            <h1 className="text-4xl md:text-7xl font-extrabold text-slate-900 tracking-tight leading-tight mb-6 font-heading">
-              Small <span className="text-emerald-600">Acts</span>,<br/>
-              Massive <span className="text-blue-600">Impact</span>
-            </h1>
+            {/* MAIN TYPOGRAPHY IMAGE - TAHREEKE.PNG */}
+            <div className="-mt-12 mb-8 w-full max-w-2xl mx-auto transform hover:scale-105 transition-transform duration-700 relative z-20">
+              <img src="/tahreeke.png" alt="Tahreeke Typography" className="w-full h-auto object-contain drop-shadow-2xl" />
+            </div>
           </FadeIn>
 
           <FadeIn delay={400}>
@@ -356,7 +355,7 @@ export default function App() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
              <FadeIn delay={100} className="h-full"><StatCounter label="Active Projects" value="02" subLabel="HEP & CLC" icon={Building} colorClass="bg-blue-500" /></FadeIn>
-             <FadeIn delay={200} className="h-full"><StatCounter label="Students Supported" value="200+" subLabel="Direct Beneficiaries" icon={Users} colorClass="bg-emerald-500" /></FadeIn>
+             <FadeIn delay={200} className="h-full"><StatCounter label="Students Supported" value="2,200+" subLabel="Direct Beneficiaries" icon={Users} colorClass="bg-emerald-500" /></FadeIn>
              <FadeIn delay={300} className="h-full"><StatCounter label="States Covered" value="02" subLabel="Delhi & Rajasthan" icon={MapPin} colorClass="bg-amber-500" /></FadeIn>
           </div>
         </div>
@@ -423,14 +422,14 @@ export default function App() {
                 theme="emerald"
                 description="Community Learning Centres (CLCs) serve as the foundation of our grassroots efforts, bringing basic education, literacy, and moral values to remote villages where schools are inaccessible or inadequate."
                 currentStats={[
-                  "Pilot Phase in Phalodi, Rajasthan",
-                  "Focus on Drop-outs & New Learners",
-                  "Establishing Village Trust"
+                  "Pilot phase in Phalodi, Rajasthan",
+                  "Establishing 50 CLC Centres",
+                  "Supporting 2000+ Students"
                 ]}
                 visionStats={[
-                  "Establish 100 CLC Centres",
-                  "Capacity: 40 Students per Centre",
-                  "Complete Holistic Development"
+                  "Providing Basic Education",
+                  "Establish 100 CLC Centres across India",
+                  "Reaching 10,000 Beneficiaries"
                 ]}
                 features={[
                   "Focus on literacy, numeracy & life skills",
