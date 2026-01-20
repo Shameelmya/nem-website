@@ -86,17 +86,18 @@ const SponsorshipTables = () => (
   <div className="space-y-12 relative z-10 max-w-5xl mx-auto">
     
     <div className="bg-white rounded-3xl shadow-lg border border-slate-100 overflow-hidden hover:shadow-xl transition-shadow duration-300">
-      {/* Header - Reddish Orange Gradient */}
-      <div className="bg-gradient-to-r from-orange-500 to-red-600 p-8 border-b border-orange-600 flex justify-between items-center">
-        <div>
-            <h3 className="text-2xl font-bold text-white font-heading">Sponsorship Opportunities</h3>
-            <p className="text-orange-100 text-sm font-medium tracking-wide mt-1">Invest in a brighter future</p>
+      {/* Header - White with Texture */}
+      <div className="bg-white p-8 border-b border-slate-100 flex justify-between items-center relative overflow-hidden">
+        <BackgroundPattern />
+        <div className="relative z-10">
+            <h3 className="text-2xl font-bold text-slate-900 font-heading">Sponsorship Opportunities</h3>
+            <p className="text-slate-500 text-sm font-medium tracking-wide mt-1">Invest in a brighter future</p>
         </div>
-        <div className="flex gap-2">
-            <div className="p-3 bg-white/20 backdrop-blur-md rounded-2xl text-white">
+        <div className="flex gap-2 relative z-10">
+            <div className="p-3 bg-blue-50 rounded-2xl text-blue-600">
                 <GraduationCap className="w-6 h-6" />
             </div>
-            <div className="p-3 bg-white/20 backdrop-blur-md rounded-2xl text-white">
+            <div className="p-3 bg-emerald-50 rounded-2xl text-emerald-600">
                 <Building className="w-6 h-6" />
             </div>
         </div>
@@ -307,12 +308,8 @@ export default function App() {
       {/* --- HERO SECTION --- */}
       <section className="relative min-h-[90vh] flex flex-col items-center justify-start pt-12 pb-12 px-4 overflow-hidden bg-white">
         
-        {/* Abstract Background Elements */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-           <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-emerald-50 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
-           <div className="absolute top-[-10%] left-[-5%] w-[500px] h-[500px] bg-blue-50 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
-           <div className="absolute bottom-[-20%] left-[20%] w-[600px] h-[600px] bg-amber-50 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-4000"></div>
-        </div>
+        {/* Animated Background */}
+        <BackgroundPattern />
 
         <div className="relative z-10 w-full max-w-6xl mx-auto flex flex-col items-center text-center">
           
@@ -336,7 +333,7 @@ export default function App() {
           </FadeIn>
 
           <FadeIn delay={400}>
-             <p className="text-2xl md:text-3xl font-light text-slate-600 mb-8 max-w-4xl mx-auto leading-snug">
+             <p className="text-2xl md:text-3xl font-light text-slate-600 mb-8 -mt-8 max-w-4xl mx-auto leading-snug relative z-20">
                Join our <span className="text-emerald-600 font-semibold relative inline-block">
                  Micro Fund Collection Campaign
                  <svg className="absolute w-full h-2 bottom-0 left-0 text-emerald-200 -z-10" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="8" fill="none"/></svg>
