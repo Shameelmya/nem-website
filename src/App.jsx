@@ -334,7 +334,7 @@ export default function App() {
           <FadeIn delay={400}>
              <p className="text-2xl md:text-3xl font-light text-slate-600 mb-8 -mt-8 max-w-4xl mx-auto leading-snug relative z-20">
                Join our <span className="text-emerald-600 font-semibold relative inline-block">
-                 Micro Fund Collection Campaign
+                 Fund Collection Drive
                  <svg className="absolute w-full h-2 bottom-0 left-0 text-emerald-200 -z-10" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="8" fill="none"/></svg>
                </span><br/> to reshape the future of North India.
              </p>
